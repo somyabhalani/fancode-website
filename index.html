@@ -39,15 +39,30 @@
             z-index: -1;
         }
 
-        /* Sophisticated Staggered Fade-Up */
-        @keyframes fadeUp {
-            0% { opacity: 0; transform: translateY(40px); }
-            100% { opacity: 1; transform: translateY(0); }
+                /* Unique Jelly Squish Reveal */
+        @keyframes squishReveal {
+            0% {
+                opacity: 0;
+                filter: blur(20px);
+                transform: scaleX(0.7) scaleY(1.5) translateY(100px);
+            }
+            40% {
+                opacity: 1;
+                filter: blur(0px);
+                transform: scaleX(1.1) scaleY(0.8) translateY(-15px);
+            }
+            70% {
+                transform: scaleX(0.95) scaleY(1.05) translateY(5px);
+            }
+            100% {
+                opacity: 1;
+                transform: scaleX(1) scaleY(1) translateY(0);
+            }
         }
-        .animate-on-load-1 { animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both; }
-        .animate-on-load-2 { animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both; }
-        .animate-on-load-3 { animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both; }
-        .animate-on-load-4 { animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both; }
+        .animate-on-load-1 { animation: squishReveal 1s ease-out 0.1s both; }
+        .animate-on-load-2 { animation: squishReveal 1s ease-out 0.25s both; }
+        .animate-on-load-3 { animation: squishReveal 1s ease-out 0.4s both; }
+        .animate-on-load-4 { animation: squishReveal 1s ease-out 0.55s both; }
 
         /* Ultra-Premium Glassmorphism (Apple Vision Pro style) */
         .app-glass {
@@ -148,6 +163,7 @@
 
 </body>
 </html>
+
 
 
 
