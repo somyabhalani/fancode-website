@@ -40,37 +40,19 @@
         }
 
                 /* Unique Jelly Squish Reveal */
-                @keyframes squishReveal {
+                        /* Ultra-Sophisticated Cinematic Fly-In */
+        @keyframes sophisticatedReveal {
             0% {
-                transform: scale3d(0, 0, 1);
-            }
-            40% {
-                transform: scale3d(1.25, 0.65, 1) translateY(-20px);
-            }
-            75% {
-                transform: scale3d(0.9, 1.15, 1) translateY(10px);
+                transform: perspective(1500px) translateY(100vh) rotateX(-15deg);
             }
             100% {
-                transform: scale3d(1, 1, 1) translateY(0);
+                transform: perspective(1500px) translateY(0) rotateX(0deg);
             }
         }
-            40% {
-                opacity: 1;
-                filter: blur(0px);
-                transform: scaleX(1.1) scaleY(0.8) translateY(-15px);
-            }
-            70% {
-                transform: scaleX(0.95) scaleY(1.05) translateY(5px);
-            }
-            100% {
-                opacity: 1;
-                transform: scaleX(1) scaleY(1) translateY(0);
-            }
-        }
-        .animate-on-load-1 { animation: squishReveal 1s ease-out 0.1s both; }
-        .animate-on-load-2 { animation: squishReveal 1s ease-out 0.25s both; }
-        .animate-on-load-3 { animation: squishReveal 1s ease-out 0.4s both; }
-        .animate-on-load-4 { animation: squishReveal 1s ease-out 0.55s both; }
+        .animate-on-load-1 { animation: sophisticatedReveal 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s both; }
+        .animate-on-load-2 { animation: sophisticatedReveal 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.15s both; }
+        .animate-on-load-3 { animation: sophisticatedReveal 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.25s both; }
+        .animate-on-load-4 { animation: sophisticatedReveal 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.35s both; }
 
         /* Ultra-Premium Glassmorphism (Apple Vision Pro style) */
         .app-glass {
@@ -171,6 +153,7 @@
 
 </body>
 </html>
+
 
 
 
