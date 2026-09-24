@@ -59,50 +59,9 @@
             border-left: 1px solid rgba(255, 255, 255, 0.25);
             border-radius: 2rem;
             box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7);
-            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Glass Surface Shine Sweep */
-        .app-glass::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -150%;
-            width: 70%; height: 100%;
-            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0) 100%);
-            transform: skewX(-25deg);
-            transition: all 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        .app-glass:hover::before {
-            left: 200%;
-        }
-
-        /* Dramatic Hover State */
-        .app-glass:hover {
-            transform: perspective(1000px) translateY(-16px) scale(1.03) rotateX(4deg);
-            border-color: rgba(168, 85, 247, 0.5); /* Violet-500 */
-            border-top: 1px solid rgba(192, 132, 252, 0.6); /* Violet-400 */
-            border-left: 1px solid rgba(192, 132, 252, 0.4);
-            box-shadow: 0 40px 80px -20px rgba(139, 92, 246, 0.4), inset 0 0 60px rgba(139, 92, 246, 0.1);
-        }
-
-        /* Icon floating animation */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
-            100% { transform: translateY(0px); }
-        }
-        .app-glass:hover .fa-brands {
-            animation: float 2s ease-in-out infinite;
-            color: #ffffff;
-            text-shadow: 0 0 20px rgba(255,255,255,0.5);
-        }
-        .fa-brands {
-            transition: all 0.5s ease;
+            
+            
+            
         }
 
         /* Minimalist Smooth Buttons */
@@ -185,3 +144,4 @@
 
 </body>
 </html>
+
