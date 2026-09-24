@@ -14,7 +14,6 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden;
-            
         }
         
         /* Smooth Breathing Background Animation */
@@ -50,7 +49,7 @@
         .animate-on-load-3 { animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both; }
         .animate-on-load-4 { animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both; }
 
-                /* Ultra-Premium Glassmorphism (Apple Vision Pro style) */
+        /* Ultra-Premium Glassmorphism (Apple Vision Pro style) */
         .app-glass {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.4) 100%);
             backdrop-filter: blur(32px);
@@ -85,10 +84,10 @@
         /* Dramatic Hover State */
         .app-glass:hover {
             transform: perspective(1000px) translateY(-16px) scale(1.03) rotateX(4deg);
-            border-color: rgba(255, 107, 0, 0.5);
-            border-top: 1px solid rgba(255, 140, 50, 0.6);
-            border-left: 1px solid rgba(255, 140, 50, 0.4);
-            box-shadow: 0 40px 80px -20px rgba(255, 107, 0, 0.4), inset 0 0 60px rgba(255, 107, 0, 0.1);
+            border-color: rgba(168, 85, 247, 0.5); /* Violet-500 */
+            border-top: 1px solid rgba(192, 132, 252, 0.6); /* Violet-400 */
+            border-left: 1px solid rgba(192, 132, 252, 0.4);
+            box-shadow: 0 40px 80px -20px rgba(139, 92, 246, 0.4), inset 0 0 60px rgba(139, 92, 246, 0.1);
         }
 
         /* Icon floating animation */
@@ -106,14 +105,14 @@
             transition: all 0.5s ease;
         }
 
-                        /* Minimalist Smooth Buttons */
+        /* Minimalist Smooth Buttons */
         .btn-download {
-            background: linear-gradient(180deg, #ff8c33 0%, #ff5500 100%);
+            background: linear-gradient(180deg, #a855f7 0%, #7e22ce 100%); /* Violet-500 to Violet-700 */
             box-shadow: 
                 inset 0 1px 1px rgba(255, 255, 255, 0.4), 
                 inset 0 -2px 4px rgba(0, 0, 0, 0.2), 
-                0 4px 12px -2px rgba(255, 107, 0, 0.3);
-            border: 1px solid #d94800;
+                0 4px 12px -2px rgba(126, 34, 206, 0.3);
+            border: 1px solid #581c87; /* Violet-900 */
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
         }
@@ -123,7 +122,7 @@
             box-shadow: 
                 inset 0 1px 1px rgba(255, 255, 255, 0.5), 
                 inset 0 -2px 4px rgba(0, 0, 0, 0.2), 
-                0 8px 20px -4px rgba(255, 107, 0, 0.5);
+                0 8px 20px -4px rgba(139, 92, 246, 0.5); /* Violet-500 glow */
             filter: brightness(1.05);
         }
         
@@ -131,7 +130,7 @@
             transform: scale(0.98);
             box-shadow: 
                 inset 0 2px 6px rgba(0, 0, 0, 0.3), 
-                0 2px 6px -2px rgba(255, 107, 0, 0.4);
+                0 2px 6px -2px rgba(126, 34, 206, 0.4);
             filter: brightness(0.95);
         }
     </style>
@@ -147,7 +146,7 @@
         <!-- Logo / Title -->
         <div class="mb-12">
             <h1 class="animate-on-load-1 text-5xl md:text-7xl font-extrabold mb-4 tracking-tight shadow-black drop-shadow-2xl">
-                FanCode <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#ff8c33] to-[#ff5500]">Player</span>
+                FanCode <span class="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-violet-600">Player</span>
             </h1>
             <p class="animate-on-load-2 text-lg md:text-xl text-gray-200 max-w-2xl mx-auto drop-shadow-md">
                 Experience live sports without limits. Featuring a beautiful dynamic ambient mode, zero DRM restrictions, and native applications for your favorite devices.
@@ -158,10 +157,10 @@
             
             <!-- Windows Card -->
             <div class="animate-on-load-3 app-glass p-8 flex flex-col items-center cursor-default group">
-                <i class="fa-brands fa-windows text-6xl text-blue-400 mb-6 drop-shadow-lg"></i>
+                <i class="fa-brands fa-windows text-6xl text-blue-300 mb-6 drop-shadow-lg"></i>
                 <h2 class="text-3xl font-bold mb-2">Windows</h2>
                 <p class="text-gray-300 mb-8 text-sm">One-click native installer. Requires Windows 10 or Windows 11.</p>
-                <a href="downloads/FanCodePlayer_Setup.exe" download class="btn-download w-full py-4 rounded-xl text-white font-bold text-lg shadow-lg shadow-orange-500/20 flex items-center justify-center gap-3">
+                <a href="downloads/FanCodePlayer_Setup.exe" download class="btn-download w-full py-4 rounded-xl text-white font-bold text-lg flex items-center justify-center gap-3">
                     <i class="fa-solid fa-download"></i> Download .exe
                 </a>
                 <p class="text-xs text-gray-400 mt-4 group-hover:text-gray-300 transition-colors">v1.0.0 (64-bit)</p>
@@ -169,10 +168,10 @@
 
             <!-- Android Card -->
             <div class="animate-on-load-4 app-glass p-8 flex flex-col items-center cursor-default group">
-                <i class="fa-brands fa-android text-6xl text-green-400 mb-6 drop-shadow-lg"></i>
+                <i class="fa-brands fa-android text-6xl text-emerald-300 mb-6 drop-shadow-lg"></i>
                 <h2 class="text-3xl font-bold mb-2">Android</h2>
                 <p class="text-gray-300 mb-8 text-sm">Lightweight native app bypassing CORS. Requires Android 8.0+.</p>
-                <a href="downloads/FanCodeMobile.apk" download class="btn-download w-full py-4 rounded-xl text-white font-bold text-lg shadow-lg shadow-orange-500/20 flex items-center justify-center gap-3">
+                <a href="downloads/FanCodeMobile.apk" download class="btn-download w-full py-4 rounded-xl text-white font-bold text-lg flex items-center justify-center gap-3">
                     <i class="fa-solid fa-download"></i> Download .apk
                 </a>
                 <p class="text-xs text-gray-400 mt-4 group-hover:text-gray-300 transition-colors">v1.0.0 (arm64)</p>
@@ -180,14 +179,9 @@
 
         </div>
 
-        
+        <div class="animate-on-load-4 mt-16 text-gray-400 text-sm drop-shadow-md">
+        </div>
     </main>
 
 </body>
 </html>
-
-
-
-
-
-
