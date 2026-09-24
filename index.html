@@ -8,100 +8,152 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
-            background-color: #0f1115;
-            color: #ffffff;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
             overflow-x: hidden;
+            background-color: #050505;
         }
-        .ambient-glow {
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255,107,0,0.15) 0%, rgba(0,0,0,0) 70%);
-            top: -100px;
-            left: -100px;
+        
+        /* Smooth Breathing Background Animation */
+        @keyframes ambientBreathe {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.06); }
+            100% { transform: scale(1); }
+        }
+        .bg-animated {
+            position: fixed;
+            top: -2%; left: -2%; width: 104%; height: 104%;
+            background-image: url('bg.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+            animation: ambientBreathe 25s ease-in-out infinite;
+        }
+
+        .bg-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.45);
             z-index: -1;
-            pointer-events: none;
         }
-        .ambient-glow-2 {
-            position: absolute;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(147,51,234,0.15) 0%, rgba(0,0,0,0) 70%);
-            bottom: -200px;
-            right: -200px;
-            z-index: -1;
-            pointer-events: none;
+
+        /* Sophisticated Staggered Fade-Up */
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: transform 0.3s ease, border-color 0.3s ease;
+        .animate-on-load-1 { animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both; }
+        .animate-on-load-2 { animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both; }
+        .animate-on-load-3 { animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both; }
+        .animate-on-load-4 { animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both; }
+
+        /* Premium Glassmorphism with Smooth Hover States */
+        .app-glass {
+            background-color: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .glass-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(255, 107, 0, 0.3);
+        .app-glass:hover {
+            transform: translateY(-12px) scale(1.02);
+            border-color: rgba(255, 107, 0, 0.35);
+            box-shadow: 0 30px 60px -12px rgba(255, 107, 0, 0.25), 0 0 40px rgba(255, 255, 255, 0.05) inset;
         }
+
+        /* Icon floating animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+        .app-glass:hover .fa-brands {
+            animation: float 2s ease-in-out infinite;
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(255,255,255,0.5);
+        }
+        .fa-brands {
+            transition: all 0.5s ease;
+        }
+
+        /* Button Shine Effect */
         .btn-download {
             background: linear-gradient(135deg, #ff6b00 0%, #ff3b00 100%);
-            transition: opacity 0.2s ease;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        .btn-download::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 50%; height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.25) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-20deg);
+            transition: all 0.6s ease;
+        }
+        .app-glass:hover .btn-download::after {
+            left: 200%;
+            transition: all 0.8s ease-in-out;
+            transition-delay: 0.1s;
         }
         .btn-download:hover {
-            opacity: 0.9;
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px -5px rgba(255, 107, 0, 0.5);
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center relative p-6">
+<body class="min-h-screen flex flex-col items-center justify-center p-6 relative">
     
-    <div class="ambient-glow"></div>
-    <div class="ambient-glow-2"></div>
+    <!-- Cinematic Background -->
+    <div class="bg-animated"></div>
+    <div class="bg-overlay"></div>
 
     <main class="max-w-4xl w-full text-center z-10">
-        <div class="mb-4 inline-block px-4 py-1 rounded-full border border-orange-500/30 text-orange-400 text-sm font-semibold tracking-wide bg-orange-500/10">
-            Now Available
+        
+        <!-- Logo / Title -->
+        <div class="mb-12">
+            <h1 class="animate-on-load-1 text-5xl md:text-7xl font-extrabold mb-4 tracking-tight shadow-black drop-shadow-2xl">
+                FanCode <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">Player</span>
+            </h1>
+            <p class="animate-on-load-2 text-lg md:text-xl text-gray-200 max-w-2xl mx-auto drop-shadow-md">
+                Experience live sports without limits. Featuring a beautiful dynamic ambient mode, zero DRM restrictions, and native applications for your favorite devices.
+            </p>
         </div>
-        <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">
-            FanCode <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">Player</span>
-        </h1>
-        <p class="text-lg md:text-xl text-gray-400 mb-16 max-w-2xl mx-auto">
-            Experience live sports without limits. Featuring a beautiful dynamic ambient mode, zero DRM restrictions, and native applications for your favorite devices.
-        </p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             
             <!-- Windows Card -->
-            <div class="glass-card rounded-3xl p-8 flex flex-col items-center relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl -mr-10 -mt-10"></div>
-                <i class="fa-brands fa-windows text-6xl text-blue-400 mb-6"></i>
-                <h2 class="text-2xl font-bold mb-2">Windows</h2>
-                <p class="text-gray-400 mb-8 text-sm">One-click native installer. Requires Windows 10 or Windows 11.</p>
+            <div class="animate-on-load-3 app-glass p-8 flex flex-col items-center cursor-default group">
+                <i class="fa-brands fa-windows text-6xl text-blue-400 mb-6 drop-shadow-lg"></i>
+                <h2 class="text-3xl font-bold mb-2">Windows</h2>
+                <p class="text-gray-300 mb-8 text-sm">One-click native installer. Requires Windows 10 or Windows 11.</p>
                 <a href="downloads/FanCodePlayer_Setup.exe" download class="btn-download w-full py-4 rounded-xl text-white font-bold text-lg shadow-lg shadow-orange-500/20 flex items-center justify-center gap-3">
                     <i class="fa-solid fa-download"></i> Download .exe
                 </a>
-                <p class="text-xs text-gray-500 mt-4">v1.0.0 (64-bit)</p>
+                <p class="text-xs text-gray-400 mt-4 group-hover:text-gray-300 transition-colors">v1.0.0 (64-bit)</p>
             </div>
 
             <!-- Android Card -->
-            <div class="glass-card rounded-3xl p-8 flex flex-col items-center relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-green-500/10 rounded-full blur-3xl -mr-10 -mt-10"></div>
-                <i class="fa-brands fa-android text-6xl text-green-400 mb-6"></i>
-                <h2 class="text-2xl font-bold mb-2">Android</h2>
-                <p class="text-gray-400 mb-8 text-sm">Lightweight native app bypassing CORS. Requires Android 8.0+.</p>
+            <div class="animate-on-load-4 app-glass p-8 flex flex-col items-center cursor-default group">
+                <i class="fa-brands fa-android text-6xl text-green-400 mb-6 drop-shadow-lg"></i>
+                <h2 class="text-3xl font-bold mb-2">Android</h2>
+                <p class="text-gray-300 mb-8 text-sm">Lightweight native app bypassing CORS. Requires Android 8.0+.</p>
                 <a href="downloads/FanCodeMobile.apk" download class="btn-download w-full py-4 rounded-xl text-white font-bold text-lg shadow-lg shadow-orange-500/20 flex items-center justify-center gap-3">
                     <i class="fa-solid fa-download"></i> Download .apk
                 </a>
-                <p class="text-xs text-gray-500 mt-4">v1.0.0 (arm64)</p>
+                <p class="text-xs text-gray-400 mt-4 group-hover:text-gray-300 transition-colors">v1.0.0 (arm64)</p>
             </div>
 
         </div>
 
-        <div class="mt-16 text-gray-500 text-sm">
-            <p>Open source and powered by GitHub Actions. <a href="https://github.com/somyabhalani/fancode" class="text-orange-400 hover:underline">View Source</a></p>
-        </div>
+        
     </main>
 
 </body>
 </html>
-
 
